@@ -842,6 +842,7 @@ body {
     margin: 0 auto;
     font-family: $ZenM-font;
     padding: (60em/18) 20px;
+    border: 1px solid $aqa;
     @include max-screen($screen-sm) {
         width: 100%;
         padding: (40em/18) 20px;
