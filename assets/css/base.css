@@ -264,13 +264,30 @@ a {
   background: #00a3df;
   color: #FFF;
   font-weight: normal;
-  display: block;
   text-decoration: none;
-  line-height: 4.25;
   border-radius: 50px;
   text-align: center;
   position: relative;
   width: 100%;
+}
+.btn:not(:has(br)) {
+  display: block;
+  line-height: 4.25;
+}
+.btn:has(br) {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5.625em;
 }
 .btn:hover {
   opacity: 0.8;
@@ -306,6 +323,21 @@ a {
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
   background: url(../img/common/plus_wt.svg) no-repeat;
+  background-size: 100% auto;
+  position: absolute;
+  right: 1.5625em;
+  top: 50%;
+  width: 0.8888888889em;
+  height: 0.8888888889em;
+}
+.btn--kaku {
+  border-radius: 0;
+}
+.btn--blank:after {
+  content: "";
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  background: url(../img/common/ico_blank.svg) no-repeat;
   background-size: 100% auto;
   position: absolute;
   right: 1.5625em;
@@ -690,7 +722,12 @@ sup {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  line-height: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-right: 0.75em;
   height: 4.875em;
   color: #FFF;
   font-weight: bold;
@@ -701,10 +738,19 @@ sup {
 }
 .fixed-btn li a:after {
   content: "";
-  display: inline-block;
-  margin-left: 0.5em;
+  position: absolute;
+  top: 50%;
+  right: 0.75em;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   width: 0.85em;
   height: 0.85em;
+}
+.fixed-btn li a > span {
+  display: block;
+}
+.fixed-btn li a > span.sm {
+  font-size: 0.75em;
 }
 .fixed-btn li a.aqa {
   background: #00a3df;

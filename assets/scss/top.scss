@@ -131,6 +131,19 @@ body {
                 top: 35%;
             }
         }
+        &.--abs03_2 {
+            width: percentage(1662/1920);
+            z-index: -2;
+            top: (-27em/18);
+            left: percentage(600/1920);
+            @include max-screen($screen-sm) {
+                width: 90%;
+                top: 20%;
+            }
+            @include max-screen($screen-xs) {
+                top: 30%;
+            }
+        }
     }
 }
 
@@ -290,12 +303,12 @@ body {
         }
         &.--abs02 {
             width: percentage(259/1920);
-            bottom: 0;
-            left: percentage(1417/1920);
+            bottom: 16%;
+            left: percentage(230/1920);
             z-index: 1;
             @include max-screen($screen-sm) {
                 width: percentage(259/1200);
-                bottom: -2em;
+                bottom: 0em;
             }
         }
         &.--abs03 {
@@ -307,6 +320,52 @@ body {
                 width: 70%;
                 bottom: 10%;
                 right: -30%;
+            }
+        }
+    }
+}
+
+.about-vision {
+    width: percentage(1340/1920);
+    margin: 0 auto;
+    padding: 12em 0 2em;
+    display: flex;
+    justify-content: space-between;
+    @include max-screen($screen-sm) {
+        padding-top: 5em;
+        padding-bottom: 0;
+        width: 100%;
+        flex-direction: column;
+    }
+    .sec__ttl {
+        text-align: left;
+        @include max-screen($screen-sm) {
+            text-align: center;
+        }
+        .main {
+            color: $aqa;
+        }
+    }
+    &__bdy {
+        text-align: left;
+        width: percentage(892/1340);
+        @include max-screen($screen-sm) {
+            width: 100%;
+        }
+    }
+    &__txt {
+        font-size: (24em/18);
+        margin-bottom: 1.5em;
+        @include max-screen($screen-sm) {
+            font-size: (20em/18);
+        }
+        &.--right {
+            text-align: right;
+        }
+        &.--min {
+            font-size: (18em/18);
+            @include max-screen($screen-sm) {
+                font-size: (16em/18);
             }
         }
     }
@@ -439,6 +498,42 @@ body {
     &.--contact {
         background: url(../img/top/contact_bg.png) no-repeat;
         background-size: cover;
+        position: relative;
+        @include max-screen($screen-sm) {
+            padding: 15em 20px;
+        }
+        .contact-abs {
+            position: absolute;
+            @include min-screen($screen-sm + 1) {
+                top: 5%;
+                bottom: 5%;
+                img {
+                    height: 100%;
+                    width: auto;
+                }
+                &.--01 {
+                    left: 2%;
+                }
+                &.--02 {
+                    right: 2%;
+                }
+            }
+            @include max-screen($screen-sm) {
+                left: 10%;
+                right: 10%;
+                &.--01 {
+                    top: 2%;
+                }
+                &.--02 {
+                    bottom: 2%;
+                }
+            }
+        }
+        .btn {
+            @include min-screen($screen-sm + 1) {
+                width: 40%;
+            }
+        }
     }
     &.--form {
         background: #f6f7f7;
@@ -449,6 +544,9 @@ body {
     &__ttl {
         text-align: center;
         margin-bottom: 2em;
+        &:not(:first-child) {
+            margin-top: 5em;
+        }
         @include max-screen($screen-sm) {
             //margin-bottom: 4em;
         }
@@ -576,8 +674,8 @@ body {
     }
     &__img {
         position: absolute;
-        width: percentage(254/954);
-        left: -12%;
+        width: 20%;
+        left: -8%;
         bottom: -15%;
         @include max-screen($screen-sm) {
             width: (67em/12);
@@ -589,7 +687,7 @@ body {
 }
 
 .modaal-container {
-    max-width: 1000px;
+    max-width: 1240px;
 }
 .modaal-content-container {
     padding: (100em/18);
@@ -599,20 +697,114 @@ body {
 }
 .modal-our {
     display: none;
+    &__num {
+        text-align: center;
+        font-size: clamp(28px, (6000vw/1280) , 60px);
+        font-family: $Poppins-font;
+        color: $aqa;
+        font-weight: bold;
+        &:not(:first-child) {
+            margin-top: 0.5em;
+            @include max-screen($screen-sm) {
+                margin-top: 1em;
+            }
+        }
+    }
     &__ttl {
         text-align: center;
-        color: $aqa;
-        font-size: (40em/18);
-        margin-bottom: 0.75em;
+        // color: $aqa;
+        font-size: clamp(16px, (4000vw/1280) , 40px);
+        margin-bottom: 1.5em;
         @include max-screen($screen-sm) {
-            font-size: (24em/18);
+            margin-bottom: 1em;
+        }
+    }
+    &__cont {
+        display: flex;
+        justify-content: space-between;
+        &.--840 {
+            max-width: 840px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @include max-screen($screen-sm) {
+            display: block;
+        }
+        &__info {
+            width: percentage(540/840);
+            @include max-screen($screen-sm) {
+                width: auto;
+            }
+            &__ttl {
+                font-size: clamp(15px, (3200vw/1280) , 32px);
+                color: $aqa;
+                margin-bottom: 1.5em;
+                @include max-screen($screen-sm) {
+                    margin-bottom: 1em;
+                }
+            }
+        }
+        &__img {
+            width: percentage(206/840);
+            float: right;
+            margin-left: 1em;
+            @include max-screen($screen-sm) {
+                max-width: 80px;
+                margin-bottom: 1em;
+            }
+        }
+        .btn {
+            margin-top: 3em;
+            font-size: clamp(12px, (1600vw/1280) , 16px);
+            @include max-screen($screen-sm) {
+            }
+        }
+    }
+    &__cont2 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 2.25em;
+        border-left: 1px solid $aqa;
+        margin-top: 4em;
+        @include max-screen($screen-sm) {
+            display: block;
+            padding-left: 1em;
+            margin-top: 2em;
+        }
+        &__info {
+            width: percentage(600/1062);
+            @include max-screen($screen-sm) {
+                width: auto;
+            }
+        }
+        &__img {
+            width: percentage(400/1062);
+            @include max-screen($screen-sm) {
+                width: auto;
+                margin-top: 1.5em;
+            }
         }
     }
     &__img {
-        margin-bottom: 1.5em;
+        margin-top: 3em;
+        text-align: center;
+        @include max-screen($screen-sm) {
+            margin-top: 2em;
+        }
+        &.--640 {
+            img {max-width: 640px;}
+        }
+        &.--800 {
+            img {max-width: 800px;}
+        }
     }
     &__txt {
-        font-size: clamp(12px, (1600vw/1600) , 16px);
+        font-size: clamp(12px, (1600vw/1280) , 16px);
+        line-height: (40/16);
+        @include max-screen($screen-sm) {
+            line-height: 1.8;
+        }
         &.--note {
             border: 1px solid #333;
             padding: 1.5em;
@@ -620,6 +812,9 @@ body {
         }
         span {
             color: $aqa;
+        }
+        &.--center {
+            text-align: center;
         }
     }
 }
@@ -696,6 +891,58 @@ body {
         @include max-screen($screen-sm) {
             width: 100%;
             margin: 1em 0;
+        }
+        &:nth-of-type(1) {
+            figure {
+                &:after {
+                    background-image: url(../img/top/staff_chara01.svg);
+                    width: percentage(85.8/300);
+                    height: percentage(121.3/300);
+                    top: percentage(155/300);
+                    left: percentage(-26/300);
+                }
+            }
+        }
+        &:nth-of-type(2) {
+            figure {
+                &:after {
+                    background-image: url(../img/top/staff_chara02.svg);
+                    width: percentage(108.8/300);
+                    height: percentage(98.4/300);
+                    bottom: percentage(-1/300);
+                    right: percentage(-5/300);
+                }
+            }
+        }
+        &:nth-of-type(3) {
+            figure {
+                &:after {
+                    background-image: url(../img/top/staff_chara03.svg);
+                    width: percentage(80/300);
+                    height: percentage(109.2/300);
+                    top: percentage(-11/300);
+                    right: percentage(0/300);
+                }
+            }
+        }
+    }
+    figure {
+        width: percentage(300/336);
+        margin: 0 auto;
+        position: relative;
+        aspect-ratio: 1 / 1;
+        &:after {
+            content: "";
+            position: absolute;
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+        }
+        img {
+            border-radius: 50em;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
     &__name {
@@ -934,4 +1181,49 @@ body {
 }
 .aco-body {
     display: none;
+}
+
+.partners-list {
+    max-width: 1188px;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include max-screen($screen-sm) {
+        justify-content: space-between;
+        width: 100%;
+    }
+    li {
+        background: #FFF;
+        border-radius: (20em/18);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 2em 0;
+        width: 23%;
+        margin-bottom: (8%/3);
+        @include min-screen($screen-sm + 1) {
+            margin-left: (8%/3);
+            &:nth-of-type(4n+1) {
+                margin-left: 0;
+            }
+        }
+        @include max-screen($screen-sm) {
+            width: 48%;
+            padding: 1.5em 0;
+            margin-bottom: 4%;
+        }
+        img {
+            width: (100em/18);
+        }
+        p {
+            color: $aqa;
+            font-weight: bold;
+            font-family: $ZenM-font;
+            font-size: (22em/18);
+            margin-top: 0.5em;
+        }
+    }
 }

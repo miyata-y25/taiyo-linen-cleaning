@@ -88,25 +88,21 @@ a {
     background: $aqa;
     color: #FFF;
     font-weight: normal;
-    display: block;
     text-decoration: none;
-    line-height: (68/16);
     border-radius: 50px;
     text-align: center;
     position: relative;
     width: 100%;
-    // &:after {
-    //     content: "";
-    //     width: (14em/16);
-    //     height: (14em/16);
-    //     @include pos-a(right,(25em/16),top,50%);
-    //     transform: translate(0,-50%);
-    //     background: url(../img/common/arrow_r_wt.svg) no-repeat;
-    //     background-size: 100% auto;
-    //     transition: .3s;
-    //     @include min-screen($screen-md + 1) {
-    //     }
-    // }
+    &:not(:has(br)) {
+        display: block;
+        line-height: (68/16);
+    }
+    &:has(br) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: (90em/16);
+    }
     &:hover {
         opacity: 0.8;
         color: #FFF;
@@ -141,6 +137,20 @@ a {
             content: "";
             transform: translate(0,-50%);
             background: url(../img/common/plus_wt.svg) no-repeat;
+            background-size: 100% auto;
+            @include pos-a(right,(25em/16),top,50%);
+            width: (16em/18);
+            height: (16em/18);
+        }
+    }
+    &--kaku {
+        border-radius: 0;
+    }
+    &--blank {
+        &:after {
+            content: "";
+            transform: translate(0,-50%);
+            background: url(../img/common/ico_blank.svg) no-repeat;
             background-size: 100% auto;
             @include pos-a(right,(25em/16),top,50%);
             width: (16em/18);
@@ -421,7 +431,9 @@ sup {
             display: flex;
             align-items: center;
             justify-content: center;
-            line-height: 0;
+            flex-direction: column;
+            // line-height: 0;
+            padding-right: 0.75em;
             height: (78em/16);
             color: #FFF;
             font-weight: bold;
@@ -431,10 +443,19 @@ sup {
             }
             &:after {
                 content: "";
-                display: inline-block;
-                margin-left: 0.5em;
+                position: absolute;
+                top: 50%;
+                right: 0.75em;
+                transform: translate(0,-50%);
                 width: (17em/20);
                 height: (17em/20);
+            }
+            > span {
+                display: block;
+                // line-height: 1.2;
+                &.sm {
+                    font-size: (12em/16);
+                }
             }
             &.aqa {
                 background: $aqa;
